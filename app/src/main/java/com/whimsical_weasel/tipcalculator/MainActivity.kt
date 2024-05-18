@@ -94,7 +94,7 @@ fun TipCalculatorApp() {
         Slider(
             value = sliderValue,
             onValueChange = { sliderValue = it },
-            steps = 12,
+            steps = 11,
             valueRange = 15f..25f,
             modifier = Modifier.padding(bottom = 16.dp)
         )
