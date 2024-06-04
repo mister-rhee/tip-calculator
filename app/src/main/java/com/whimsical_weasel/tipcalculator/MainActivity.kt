@@ -45,6 +45,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.whimsical_weasel.tipcalculator.ui.theme.TipCalculatorTheme
 import java.text.NumberFormat
+import kotlin.math.round
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -93,7 +94,7 @@ fun TipCalculatorApp() {
         )
         Slider(
             value = sliderValue,
-            onValueChange = { sliderValue = it },
+            onValueChange = { sliderValue = round(it) },
             steps = 11,
             valueRange = 15f..25f,
             modifier = Modifier.padding(bottom = 16.dp)
@@ -138,7 +139,7 @@ internal fun calculateTip(
     tipPercent: Float,
     roundUp: Boolean
 ): String {
-    var tip = tipPercent / 100f * amount
+    var tip = tipPercent / 100 * amount
     if (roundUp) {
         tip = kotlin.math.ceil(tip)
     }
